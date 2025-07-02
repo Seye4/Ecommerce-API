@@ -45,15 +45,6 @@ app.use(cookieParser(process.env.JWT_SECRET));
 app.use(express.static("./public"));
 app.use(fileUpload());
 
-app.get("/", (req, res) => {
-  const __dirname = dirname(fileURLToPath(import.meta.url));
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-
-app.get("/api/v1", (req, res) => {
-  res.send("this is homepage");
-});
-
 app.use("/api/v1/auth", router);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/products", productRouter);

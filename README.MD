@@ -374,3 +374,12 @@
 - [] git remote -v
 - [] setup env vars in GUI
 - [] git push heroku master/main
+
+app.get("/", (req, res) => {
+const **dirname = dirname(fileURLToPath(import.meta.url));
+res.sendFile(path.join(**dirname, "public", "index.html"));
+});
+
+app.get("/api/v1", (req, res) => {
+res.send("this is homepage");
+});
